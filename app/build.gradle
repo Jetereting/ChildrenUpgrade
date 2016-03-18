@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "us.eiyou.childrenupgrade"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    //    注入
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //bmob-sdk ：Bmob的android sdk包
+    compile 'cn.bmob.android:bmob-sdk:3.4.5'
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/baidumapapi_base_v3_7_1.jar')
+    compile files('libs/baidumapapi_cloud_v3_7_1.jar')
+    compile files('libs/baidumapapi_map_v3_7_1.jar')
+    compile files('libs/baidumapapi_search_v3_7_1.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
+    //    百分比布局
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.zhy:percent-support-extends:1.0.6'
+    compile 'com.android.support:support-v4:23.2.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+}

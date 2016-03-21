@@ -8,7 +8,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;
@@ -16,12 +21,19 @@ import us.eiyou.childrenupgrade.model.Probability;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Bind(R.id.et_name)
+    EditText etName;
+    @Bind(R.id.et_password)
+    EditText etPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         isPay();
     }
+
 
     public void isPay() {
         Bmob.initialize(this, "52c499abafd075320161de647bdf5dfa");
@@ -35,11 +47,13 @@ public class MainActivity extends AppCompatActivity {
                     showDialogWrong();
                 }
             }
+
             @Override
             public void onFailure(int i, String s) {
             }
         });
     }
+
     public void showDialogWrong() {
         new AlertDialog.Builder(MainActivity.this).setTitle("还差500.").setIcon(
                 android.R.drawable.ic_dialog_info).setPositiveButton("马上发工资！", new DialogInterface.OnClickListener() {
@@ -56,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).setCancelable(false).show();
     }
+
     //  点击返回按钮后回到桌面
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -72,5 +87,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         isPay();
         super.onResume();
+    }
+
+    @OnClick(R.id.b_login)
+    public void onClick() {
+        if(etName.getText().toString().equals("a")&&etPassword.getText().toString().equals("a")){
+            startActivity(new Intent(getApplicationContext(),SelectUserActivity.class));
+            finish();
+        }else {
+            Toast.makeText(this, "亲，用户名或密码错误~", Toast.LENGTH_SHORT).show();
+        }
     }
 }

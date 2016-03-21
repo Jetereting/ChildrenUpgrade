@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/select_user"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:id="@+id/layout"
+    tools:conhint="us.eiyou.childrenupgrade.SelectUserActivity">
+
+    <ImageView
+        android:id="@+id/user1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_heightPercent="19%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="12.6%"
+        app:layout_widthPercent="35%" />
+
+    <EditText
+        android:id="@+id/user1_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="输入昵称"
+        android:textSize="16sp"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="26.9%"
+        app:layout_widthPercent="35%" />
+
+    <ImageView
+        android:id="@+id/user2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_heightPercent="19%"
+        app:layout_marginLeftPercent="59%"
+        app:layout_marginTopPercent="12.6%"
+        app:layout_widthPercent="35%" />
+
+    <EditText
+        android:id="@+id/user2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="输入昵称"
+        android:textSize="16sp"
+        app:layout_marginLeftPercent="60%"
+        app:layout_marginTopPercent="26.9%"
+        app:layout_widthPercent="35%" />
+
+
+    <ImageView
+        android:id="@+id/user3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_heightPercent="19%"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="35.6%"
+        app:layout_widthPercent="35%" />
+
+    <EditText
+        android:id="@+id/user3_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="输入昵称"
+        android:textSize="16sp"
+        app:layout_marginLeftPercent="8%"
+        app:layout_marginTopPercent="48.9%"
+        app:layout_widthPercent="35%" />
+
+
+    <ImageView
+        android:id="@+id/user4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_heightPercent="19%"
+        app:layout_marginLeftPercent="59%"
+        app:layout_marginTopPercent="35.6%"
+        app:layout_widthPercent="35%" />
+
+    <EditText
+        android:id="@+id/user4_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="输入昵称"
+        android:textSize="16sp"
+        app:layout_marginLeftPercent="60%"
+        app:layout_marginTopPercent="48.9%"
+        app:layout_widthPercent="35%" />
+
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

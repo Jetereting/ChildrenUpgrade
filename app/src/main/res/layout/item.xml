@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="@drawable/item">
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:hint="点我输入光荣事迹"
+        android:imeOptions="actionSend"
+        android:singleLine="true"
+        android:textColor="#015600"
+        android:gravity="center"
+        app:layout_widthPercent="67%"/>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="0"
+        android:lines="1"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        app:layout_widthPercent="15%"
+        app:layout_marginLeftPercent="74%"/>
+    <Button
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_marginLeftPercent="88%"
+        android:background="@null"/>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

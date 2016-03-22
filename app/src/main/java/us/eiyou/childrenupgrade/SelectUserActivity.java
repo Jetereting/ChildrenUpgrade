@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,36 +62,64 @@ public class SelectUserActivity extends AppCompatActivity {
     }
 
     private void setName() {
-        user1Name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        user1Name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    SP.put(getApplicationContext(), "user1Name", user1Name.getText().toString());
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND || actionId == 0) {
+                    if (user1Name.getText().toString().length()!=0) {
+                        SP.put(getApplicationContext(), "user1Name", user1Name.getText().toString());
+                        Toast.makeText(SelectUserActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
+                        user1Name.clearFocus();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "还没有输入昵称呢！", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                return true;
             }
         });
-        user2Name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        user2Name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    SP.put(getApplicationContext(), "user2Name", user2Name.getText().toString());
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND || actionId == 0) {
+                    if (user2Name.getText().toString().length() != 0) {
+                        SP.put(getApplicationContext(), "user2Name", user2Name.getText().toString());
+                        Toast.makeText(SelectUserActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
+                        user2Name.clearFocus();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "还没有输入昵称呢！", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                return true;
             }
         });
-        user3Name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        user3Name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    SP.put(getApplicationContext(), "user3Name", user3Name.getText().toString());
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND || actionId == 0) {
+                    if (user3Name.getText().toString().length() != 0) {
+                        SP.put(getApplicationContext(), "user3Name", user3Name.getText().toString());
+                        Toast.makeText(SelectUserActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
+                        user3Name.clearFocus();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "还没有输入昵称呢！", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                return true;
             }
         });
-        user4Name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        user4Name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    SP.put(getApplicationContext(), "user4Name", user4Name.getText().toString());
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEND || actionId == 0) {
+                    if (user4Name.getText().toString().length() != 0) {
+                        SP.put(getApplicationContext(), "user4Name", user4Name.getText().toString());
+                        Toast.makeText(SelectUserActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
+                        user4Name.clearFocus();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "还没有输入昵称呢！", Toast.LENGTH_SHORT).show();
+                    }
                 }
+                return true;
             }
         });
     }

@@ -2,6 +2,7 @@ package us.eiyou.childrenupgrade.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,9 +45,23 @@ public class KeMuAdapter extends RecyclerView.Adapter<KeMuViewHolder> {
     public void onBindViewHolder(final KeMuViewHolder holder, final int position) {
         if (position != strings.size()) {
             holder.et.setText(strings.get(position));
-            holder.et.setEnabled(false);
+            holder.et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_SEND || actionId == 0) {
+                        strings.set(position,holder.et.getText().toString());
+                        String setStrings="";
+                        for (int i = 0; i < strings.size(); i++) {
+                            setStrings+=strings.get(i)+"#";
+                        }
+                        SP.put(mContext, (tag + "String"),setStrings);
+                        Toast.makeText(mContext, "修改成功！", Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                }
+            });
+
             holder.tv.setText(integers.get(position) + "");
-            holder.b.setEnabled(false);
         } else {
             holder.et.setText("");
             holder.et.setEnabled(true);
@@ -91,6 +106,15 @@ public class KeMuAdapter extends RecyclerView.Adapter<KeMuViewHolder> {
             public void onClick(View v) {
                 integers.set(position, (integers.get(position) + 1));
                 holder.tv.setText("" + integers.get(position));
+                Log.d("KeMuAdapter", "integers:" + integers);
+                String setIntegers="";
+                int fraction=0;
+                for (int i = 0; i < strings.size(); i++) {
+                    setIntegers+=integers.get(i)+"#";
+                    fraction+=integers.get(i);
+                }
+                SP.put(mContext, (tag + "Int"),setIntegers);
+                SP.put(mContext,tag,fraction);
             }
         });
     }
@@ -100,6 +124,4 @@ public class KeMuAdapter extends RecyclerView.Adapter<KeMuViewHolder> {
     public int getItemCount() {
         return strings.size() + 1;
     }
-
-
 }

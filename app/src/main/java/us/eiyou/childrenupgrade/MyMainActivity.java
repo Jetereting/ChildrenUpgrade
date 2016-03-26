@@ -133,7 +133,7 @@ public class MyMainActivity extends AppCompatActivity {
                 }
             });
         } else if (getIntent().getStringExtra("who").equals("user2")) {
-            avatar.setImageResource(R.drawable.avatar1);
+            avatar.setImageResource(R.drawable.avatar2);
             name.setText(SP.getString(getApplicationContext(), "user2Name"));
             int fractionInt=SP.getInt(getApplicationContext(), "user2Fraction");
             fraction.setText("总分：" + fractionInt);
@@ -176,7 +176,7 @@ public class MyMainActivity extends AppCompatActivity {
                 }
             });
         } else if (getIntent().getStringExtra("who").equals("user3")) {
-            avatar.setImageResource(R.drawable.avatar1);
+            avatar.setImageResource(R.drawable.avatar3);
             name.setText(SP.getString(getApplicationContext(), "user3Name"));
             int fractionInt=SP.getInt(getApplicationContext(), "user3Fraction");
             fraction.setText("总分：" + fractionInt);
@@ -219,7 +219,7 @@ public class MyMainActivity extends AppCompatActivity {
                 }
             });
         } else if (getIntent().getStringExtra("who").equals("user4")) {
-            avatar.setImageResource(R.drawable.avatar1);
+            avatar.setImageResource(R.drawable.avatar4);
             name.setText(SP.getString(getApplicationContext(), "user4Name"));
             int fractionInt=SP.getInt(getApplicationContext(), "user4Fraction");
             fraction.setText("总分：" + fractionInt);

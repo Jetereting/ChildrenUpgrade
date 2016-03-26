@@ -32,10 +32,12 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="黄海山"
+        app:layout_widthPercent="22%"
+        android:text="大帅哥啊"
         android:textColor="#ffffff"
-        android:textSize="22sp"
-        app:layout_marginLeftPercent="39%"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_marginLeftPercent="37%"
         app:layout_marginTopPercent="14%"/>
     <TextView
         android:id="@+id/lv"
@@ -47,14 +49,14 @@
         android:text="lv3"
         android:textColor="#3f3fb9"
         android:textSize="15sp"
-        app:layout_marginLeftPercent="57%"
+        app:layout_marginLeftPercent="59%"
         app:layout_marginTopPercent="14.5%"/>
     <TextView
         android:id="@+id/fraction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        app:layout_marginLeftPercent="67%"
+        app:layout_marginLeftPercent="69%"
         app:layout_marginTopPercent="14.9%"
         android:textStyle="italic"
         android:text="总分：54"/>

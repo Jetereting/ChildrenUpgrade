@@ -5,5 +5,5 @@ package us.eiyou.childrenupgrade.utils;
  */
 public class Contants {
 //    多少分升一级
-    public static int upgradeFraction=10;
+    public static int upgradeFraction=100;
 }

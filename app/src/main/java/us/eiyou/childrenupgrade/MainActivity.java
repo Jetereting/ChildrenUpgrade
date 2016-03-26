@@ -1,9 +1,6 @@
 package us.eiyou.childrenupgrade;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +15,7 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;
 import us.eiyou.childrenupgrade.model.Probability;
+import us.eiyou.childrenupgrade.utils.SP;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,20 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDialogWrong() {
-        new AlertDialog.Builder(MainActivity.this).setTitle("还差500.").setIcon(
-                android.R.drawable.ic_dialog_info).setPositiveButton("马上发工资！", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent phoneIntent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + "17096241774"));
-                startActivity(phoneIntent);
-            }
-        }).setNegativeButton("帮忙催款去", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent phoneIntent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + "13372546976"));
-                startActivity(phoneIntent);
-            }
-        }).setCancelable(false).show();
+
     }
 
     //  点击返回按钮后回到桌面
@@ -91,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.b_login)
     public void onClick() {
-        if(etName.getText().toString().equals("a")&&etPassword.getText().toString().equals("a")){
-            startActivity(new Intent(getApplicationContext(),SelectUserActivity.class));
+        if(etName.getText().toString().equals("qust")&&etPassword.getText().toString().equals("qust")){
+            SP.put(getApplicationContext(),"userName",etName.getText().toString());
+            SP.put(getApplicationContext(),"userPassword",etPassword.getText().toString());
+            startActivity(new Intent(getApplicationContext(), SelectUserActivity.class));
             finish();
         }else {
             Toast.makeText(this, "亲，用户名或密码错误~", Toast.LENGTH_SHORT).show();
